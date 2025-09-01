@@ -1,4 +1,4 @@
-package com.ibm.sk.jacademy.todo.entity;
+package com.ibm.sk.tasktool.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

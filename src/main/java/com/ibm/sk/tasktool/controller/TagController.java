@@ -1,4 +1,4 @@
-package com.ibm.sk.jacademy.todo.controller;
+package com.ibm.sk.tasktool.controller;
 
 import java.util.List;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ibm.sk.jacademy.todo.dto.Tag;
-import com.ibm.sk.jacademy.todo.service.ControllerService;
+import com.ibm.sk.tasktool.dto.Tag;
+import com.ibm.sk.tasktool.service.ControllerService;
 
 import jakarta.validation.Valid;
 

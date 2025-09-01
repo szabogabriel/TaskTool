@@ -1,4 +1,4 @@
-package com.ibm.sk.jacademy.todo;
+package com.ibm.sk.tasktool;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

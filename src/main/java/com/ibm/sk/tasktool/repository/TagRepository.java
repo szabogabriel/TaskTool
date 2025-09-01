@@ -1,10 +1,10 @@
-package com.ibm.sk.jacademy.todo.repository;
+package com.ibm.sk.tasktool.repository;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.ibm.sk.jacademy.todo.entity.TagEntity;
+import com.ibm.sk.tasktool.entity.TagEntity;
 
 public interface TagRepository extends JpaRepository<TagEntity, Long> {
 

@@ -1,4 +1,4 @@
-package com.ibm.sk.jacademy.todo.controller;
+package com.ibm.sk.tasktool.controller;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -21,10 +21,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.ibm.sk.jacademy.todo.dto.Task;
-import com.ibm.sk.jacademy.todo.dto.TaskCreate;
-import com.ibm.sk.jacademy.todo.dto.TaskUpdate;
-import com.ibm.sk.jacademy.todo.service.ControllerService;
+import com.ibm.sk.tasktool.dto.Task;
+import com.ibm.sk.tasktool.dto.TaskCreate;
+import com.ibm.sk.tasktool.dto.TaskUpdate;
+import com.ibm.sk.tasktool.service.ControllerService;
 
 import jakarta.validation.Valid;
 

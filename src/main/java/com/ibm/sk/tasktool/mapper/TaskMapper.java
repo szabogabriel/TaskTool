@@ -1,14 +1,14 @@
-package com.ibm.sk.jacademy.todo.mapper;
+package com.ibm.sk.tasktool.mapper;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ibm.sk.jacademy.todo.dto.Task;
-import com.ibm.sk.jacademy.todo.dto.TaskCreate;
-import com.ibm.sk.jacademy.todo.dto.TaskUpdate;
-import com.ibm.sk.jacademy.todo.entity.TaskEntity;
+import com.ibm.sk.tasktool.dto.Task;
+import com.ibm.sk.tasktool.dto.TaskCreate;
+import com.ibm.sk.tasktool.dto.TaskUpdate;
+import com.ibm.sk.tasktool.entity.TaskEntity;
 
 //TODO: add Mapstruct here!
 public class TaskMapper {

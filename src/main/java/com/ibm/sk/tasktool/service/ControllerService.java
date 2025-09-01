@@ -1,4 +1,4 @@
-package com.ibm.sk.jacademy.todo.service;
+package com.ibm.sk.tasktool.service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,16 +11,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ibm.sk.jacademy.todo.dto.Tag;
-import com.ibm.sk.jacademy.todo.dto.Task;
-import com.ibm.sk.jacademy.todo.dto.TaskCreate;
-import com.ibm.sk.jacademy.todo.dto.TaskUpdate;
-import com.ibm.sk.jacademy.todo.entity.TagEntity;
-import com.ibm.sk.jacademy.todo.entity.TaskEntity;
-import com.ibm.sk.jacademy.todo.mapper.TagMapper;
-import com.ibm.sk.jacademy.todo.mapper.TaskMapper;
-import com.ibm.sk.jacademy.todo.repository.TagRepository;
-import com.ibm.sk.jacademy.todo.repository.TaskRepository;
+import com.ibm.sk.tasktool.dto.Tag;
+import com.ibm.sk.tasktool.dto.Task;
+import com.ibm.sk.tasktool.dto.TaskCreate;
+import com.ibm.sk.tasktool.dto.TaskUpdate;
+import com.ibm.sk.tasktool.entity.TagEntity;
+import com.ibm.sk.tasktool.entity.TaskEntity;
+import com.ibm.sk.tasktool.mapper.TagMapper;
+import com.ibm.sk.tasktool.mapper.TaskMapper;
+import com.ibm.sk.tasktool.repository.TagRepository;
+import com.ibm.sk.tasktool.repository.TaskRepository;
 
 
 @Service

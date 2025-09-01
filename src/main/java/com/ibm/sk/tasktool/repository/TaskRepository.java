@@ -1,4 +1,4 @@
-package com.ibm.sk.jacademy.todo.repository;
+package com.ibm.sk.tasktool.repository;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.ibm.sk.jacademy.todo.entity.TaskEntity;
+import com.ibm.sk.tasktool.entity.TaskEntity;
 
 public interface TaskRepository extends JpaRepository<TaskEntity, Long> {
 

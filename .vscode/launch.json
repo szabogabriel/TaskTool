@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "TodoApplication",
+            "request": "launch",
+            "mainClass": "com.ibm.sk.tasktool.TodoApplication",
+            "projectName": "todo"
+        },
+        {
             "name": "Java",
             "type": "java",
             "request": "launch",

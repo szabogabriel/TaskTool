@@ -1,10 +1,10 @@
-package com.ibm.sk.jacademy.todo.mapper;
+package com.ibm.sk.tasktool.mapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.ibm.sk.jacademy.todo.dto.Tag;
-import com.ibm.sk.jacademy.todo.entity.TagEntity;
+import com.ibm.sk.tasktool.dto.Tag;
+import com.ibm.sk.tasktool.entity.TagEntity;
 
 public class TagMapper {
 

@@ -1,4 +1,4 @@
-package com.ibm.sk.jacademy.todo.dto;
+package com.ibm.sk.tasktool.dto;
 
 import java.time.LocalDateTime;
 import java.util.List;

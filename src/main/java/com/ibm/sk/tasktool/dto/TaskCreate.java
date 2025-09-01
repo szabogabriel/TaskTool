@@ -1,9 +1,9 @@
-package com.ibm.sk.jacademy.todo.dto;
+package com.ibm.sk.tasktool.dto;
 
 import lombok.Data;
 
 @Data
-public class TaskUpdate {
+public class TaskCreate {
 
     private String title;
     private String description;
