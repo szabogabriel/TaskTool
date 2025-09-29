@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "com.ibm.sk.tasktool.legacy.Main",
+            "projectName": "todo"
+        },
+        {
+            "type": "java",
             "name": "TodoApplication",
             "request": "launch",
             "mainClass": "com.ibm.sk.tasktool.TodoApplication",

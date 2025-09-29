@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import com.ibm.sk.tasktool.dto.Tag;
 import com.ibm.sk.tasktool.entity.TagEntity;
 
+//TODO: Work with Mapstruct
 public class TagMapper {
 
     public static Tag toDto(TagEntity entity) {

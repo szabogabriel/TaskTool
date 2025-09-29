@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ibm.sk.tasktool.dto.PriorityEnum;
 import com.ibm.sk.tasktool.dto.Task;
 import com.ibm.sk.tasktool.dto.TaskCreate;
 import com.ibm.sk.tasktool.dto.TaskUpdate;
@@ -24,6 +25,7 @@ public class TaskMapper {
         dto.setDescription(entity.getDescription());
         dto.setCompleted(entity.isCompleted());
         dto.setDueDate(entity.getDueDate());
+        dto.setPriority(PriorityEnum.fromInteger(entity.getPriority()));
         dto.setTags(TagMapper.toDtoStringList(entity.getTags()));
         return dto;
     }
@@ -48,9 +50,14 @@ public class TaskMapper {
         TaskEntity entity = new TaskEntity();
         entity.setTitle(dto.getTitle());
         entity.setDescription(dto.getDescription());
-        entity.setCompleted(false);
+        entity.setCompleted(dto.isCompleted());
         entity.setDueDate(toLocalDateTime(dto.getDueDate()));
-        
+        if (dto.getPriority() != null) {
+            entity.setPriority(PriorityEnum.fromString(dto.getPriority()).toInteger());
+        } else {
+            entity.setPriority(PriorityEnum.MEDIUM.toInteger());
+        }
+
         return entity;
     }
 
@@ -68,6 +75,9 @@ public class TaskMapper {
         entity.setCompleted(update.isCompleted());
         if (update.getDueDate() != null) {
             entity.setDueDate(toLocalDateTime(update.getDueDate()));
+        }
+        if (update.getPriority() != null) {
+            entity.setPriority(PriorityEnum.fromString(update.getPriority()).toInteger());
         }
         // Tags are not updated here
 

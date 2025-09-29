@@ -42,11 +42,15 @@ public class TaskEntity {
     private LocalDateTime dueDate;
 
     @Column
+    private Integer priority;
+
+    @Column
     private Long owner;
 
+    //TODO: one to many
     @ManyToMany
-    @JoinTable(name = "todo_tags",
-            joinColumns = @JoinColumn(name = "todo_id"),
+    @JoinTable(name = "task_tag",
+            joinColumns = @JoinColumn(name = "task_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id"))
     private List<TagEntity> tags;
 }
