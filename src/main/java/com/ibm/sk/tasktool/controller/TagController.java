@@ -2,6 +2,9 @@ package com.ibm.sk.tasktool.controller;
 
 import java.util.List;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -47,7 +50,7 @@ public class TagController {
     }
 
     @PostMapping
-    public Tag add(@Valid @RequestBody String tag) {
+    public Tag add(@Valid @RequestBody @NotNull @Size(min = 5) String tag) {
         return service.createTag(tag);
     }
 
