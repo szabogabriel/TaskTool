@@ -7,6 +7,7 @@ import java.util.Optional;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -118,7 +119,7 @@ public class ControllerService {
         if (tag.isPresent()) {
             return TagMapper.toDto(tag.get());
         } else {
-            throw new IllegalArgumentException();
+            throw new EntityNotFoundException();
         }
     }
 
