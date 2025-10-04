@@ -3,10 +3,10 @@ package com.ibm.example;
 public final class App {
 
     Server server;
-    H2Database database;
+    Database database;
 
     private App() {
-        database = new H2Database(Config.DB_FILE_PATH.value());
+        database = new Database(Config.DB_FILE_PATH.value());
         logMessage("Starting server ...");
         server = new Server(database);
     }

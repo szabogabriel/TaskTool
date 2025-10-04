@@ -7,13 +7,13 @@ import java.net.Socket;
 
 public class Server {
 
-    private H2Database database;
+    private Database database;
 
-    public Server(H2Database database) {
+    public Server(Database database) {
         this(database, Integer.parseInt(Config.SERVER_PORT.value()));
     }
 
-    public Server(H2Database database, int port) {
+    public Server(Database database, int port) {
         // database = new H2Database("./my.db"); -> do this in the beginning.
         this.database = database;
         logMessage("Starting server ...");

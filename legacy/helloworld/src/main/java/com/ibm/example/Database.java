@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
 
-public class H2Database implements Closeable {
+public class Database implements Closeable {
 
     private static final String CREATE_TABLE_SQL = "CREATE TABLE IF NOT EXISTS LOG_ENTRIES (" +
             "ID BIGINT AUTO_INCREMENT PRIMARY KEY," +
@@ -21,38 +21,48 @@ public class H2Database implements Closeable {
 
     private final Connection conn;
 
-    public H2Database(String filePath) {
-        String jdbcUrl = buildUrl(Objects.requireNonNull(filePath));
+    public Database(String filePath) {
+        String jdbcUrl = buildJdbcUrl(Objects.requireNonNull(filePath));
         System.out.println("Creating H2Database with URL: " + jdbcUrl);
         try {
-            Class.forName("org.h2.Driver"); // H2 driver auto-registers since JDBC 4, but explicit load doesn't hurt:
+            loadH2JdbcDriver();
             this.conn = DriverManager.getConnection(jdbcUrl, Config.DB_USERNAME.value(), Config.DB_PASSWORD.value());
             initSchema();
 
-            org.h2.tools.Server web = org.h2.tools.Server.createWebServer("-web", "-webPort", Config.H2_WEB_PORT.value(), "-webDaemon").start();
-
-            System.out.println("H2 Web Console started and listening on port " + Config.H2_WEB_PORT.value());
-
-            Runtime.getRuntime().addShutdownHook(new Thread(web::stop));
-            Runtime.getRuntime().addShutdownHook(new Thread(this::close));
+            startH2WebConsole();
         } catch (Exception e) {
             throw new RuntimeException("Failed to open H2 database", e);
         }
+
+        Runtime.getRuntime().addShutdownHook(new Thread(this::close));
     }
 
-    private static String buildUrl(String filePath) {
-        // Sensible defaults for a dev/demo DB:
-        // - file mode (persists to disk)
-        // - DB_CLOSE_DELAY=-1 keeps DB alive while JVM runs
-        // - AUTO_SERVER=TRUE allows reconnects from other processes if needed
-        // (optional)
+    private static String buildJdbcUrl(String filePath) {
         return "jdbc:h2:file:" + filePath + ";DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE";
+    }
+
+    private void loadH2JdbcDriver() {
+        // H2 driver auto-registers since JDBC 4, but explicit load doesn't hurt:
+        try {
+            Class.forName("org.h2.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException("H2 JDBC Driver not found", e);
+        }
     }
 
     private void initSchema() throws SQLException {
         try (Statement st = conn.createStatement()) {
             st.execute(CREATE_TABLE_SQL);
         }
+    }
+
+    private void startH2WebConsole() throws SQLException {
+        org.h2.tools.Server web = org.h2.tools.Server
+                .createWebServer("-web", "-webPort", Config.H2_WEB_PORT.value(), "-webDaemon").start();
+
+        System.out.println("H2 Web Console started and listening on port " + Config.H2_WEB_PORT.value());
+
+        Runtime.getRuntime().addShutdownHook(new Thread(web::stop));
     }
 
     public long log(String content) {
